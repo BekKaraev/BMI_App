@@ -1,4 +1,4 @@
-import 'package:bmiapp/bmi_page.dart';
+import 'package:bmiapp/pages/bmi_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
         ),
          scaffoldBackgroundColor: const Color(0xff0A0E20),
       ),
-      home:const BmiPage()
+      home: BmiPage()
     );
   }
 }

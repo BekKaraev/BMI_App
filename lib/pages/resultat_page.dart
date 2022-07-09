@@ -1,4 +1,5 @@
-import 'package:bmiapp/widgets/bmi_brain.dart';
+import 'package:bmiapp/constants/text_styles/app_textStyles.dart';
+import 'package:bmiapp/data/repos/bmi_repo.dart';
 import 'package:bmiapp/widgets/button_calculate.dart';
 import 'package:flutter/material.dart';
 
@@ -6,6 +7,7 @@ class ResultatPage extends StatelessWidget {
   const ResultatPage({Key key, this.bmiresult}) : super(key: key);
 
   final double bmiresult;
+  
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +21,7 @@ class ResultatPage extends StatelessWidget {
           children: [
             Text(
               'жыйынтык'.toUpperCase(),
-              style: const TextStyle(fontSize: 35.0),
+              style: const TextStyle(fontSize: 20.0),
             ),
             const SizedBox(
               height: 25.0,
@@ -32,24 +34,19 @@ class ResultatPage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Text(
-                    bmiBrain.getResult(bmiresult),
-                    style: const TextStyle(
-                        fontSize: 25.0,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.green),
+                    BmiRepo.getResult(bmiresult),
+                    style: AppTextStyle.apptext,
                   ),
                   Text(
-                    bmiresult.toString(),
+                    bmiresult.toStringAsFixed(1),
                     style: const TextStyle(
                       fontSize: 60.0,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  Text(bmiBrain.getInterpretation(bmiresult),
-                      style: const TextStyle(
-                          fontSize: 25.0,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.green)),
+                  Text(BmiRepo.getInterpretation(bmiresult),
+                      style: AppTextStyle.apptext
+                      ),
                 ],
               ),
             ),
